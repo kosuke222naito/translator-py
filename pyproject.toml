@@ -1,0 +1,28 @@
+[project]
+name = "translator"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+  { name = "kosuke222naito", email = "kosuke.naito.engineer@gmail.com" },
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+translator = "translator:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["I", "N802", "N803", "F"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.3",
+]
