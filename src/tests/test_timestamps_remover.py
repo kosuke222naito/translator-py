@@ -1,4 +1,3 @@
-
 import pytest
 
 from translator import remove_timestamps_from_str
