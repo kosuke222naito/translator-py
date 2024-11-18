@@ -1,13 +1,19 @@
 import re
 from re import Pattern
 
-TIMESTAMP_PATTERN: Pattern = re.compile(r"^\d{1,2}:\d{2}(:\d{2})?", re.MULTILINE)
+TIMESTAMP_PATTERN: Pattern = re.compile(r"^\d{1,2}:\d{2}(:\d{2})?")
 EXTRA_NEWLINES_PATTERN: Pattern = re.compile(r"\n\s*\n")
 
 
 def remove_timestamps_from_str(text: str) -> str:
-    cleaned_text: str = TIMESTAMP_PATTERN.sub("", text)
-    return EXTRA_NEWLINES_PATTERN.sub("\n", cleaned_text)
+    lines: list[str] = text.splitlines(keepends=True)
+    cleaned_lines: list[str] = []
+    for line in lines:
+        if TIMESTAMP_PATTERN.match(line):
+            cleaned_lines.append("\n")
+        else:
+            cleaned_lines.append(line)
+    return "".join(cleaned_lines)
 
 
 def remove_timestamps_from_file(input_filename: str, output_filename: str | None = None) -> None:
