@@ -7,10 +7,10 @@ authors = [
   { name = "kosuke222naito", email = "kosuke.naito.engineer@gmail.com" },
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = ["typer[all]>=0.13.0"]
 
 [project.scripts]
-translator = "translator:main"
+translator = "translator.main:main"
 
 [build-system]
 requires = ["hatchling"]

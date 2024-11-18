@@ -17,7 +17,8 @@ def remove_timestamps_from_file(input_filename: str, output_filename: str | None
     cleaned_content = remove_timestamps_from_str(content)
 
     if output_filename is None:
-        output_filename = f"{input_filename.rsplit('.', 1)[0]}_timestamps_removed.{input_filename.rsplit('.', 1)[1]}"
+        filename, extension = input_filename.split(".")
+        output_filename = f"{filename}_timestamps_removed.{extension}"
 
     with open(output_filename, "w", encoding="utf-8") as f:
         f.write(cleaned_content)
