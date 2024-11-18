@@ -20,7 +20,7 @@ def remove_timestamps(input_filename: str, output_filename: str | None = None):
     """
     try:
         remove_timestamps_from_file(input_filename, output_filename)
-        print("Timestamps remove successfully")
+        print("Timestamps removed successfully")
     except FileNotFoundError:
         print("Error: Input file not found.")
     except Exception as e:
